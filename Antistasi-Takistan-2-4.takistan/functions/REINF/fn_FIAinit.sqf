@@ -56,7 +56,7 @@ if (player == leader _unit) then {
 	if (((_unit getVariable "unitType") != SDKUnarmed) and !A3A_hasIFA) then {
 		private _idUnit = selectRandom arrayids;
 		arrayids = arrayids - [_idunit];
-		_unit setIdentity _idUnit;
+		[_unit, _idUnit] remoteExec ["setIdentity", 0, _unit];
 	};
 	if (captive player) then {[_unit] spawn A3A_fnc_undercoverAI};
 

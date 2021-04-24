@@ -186,7 +186,7 @@ addMissionEventHandler ["EachFrame",
 	else {
 		if (_water || _placementPos distance2d player > 100) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
 		vehPlace_updatedLookPosition = _pos;
-		vehPlace_previewVeh setPosATL _placementPos;
+		vehPlace_previewVeh setPosWorld ((ATLtoASL _placementPos) vectordiff [0,0,(0 boundingboxreal vehPlace_previewVeh) # 0 # 2]);
 		vehPlace_previewVeh setVectorUp (_chosenIntersection select 1);
 	};
 	}];

@@ -222,14 +222,11 @@ _sfLoadoutData setVariable ["carbines", [
 ]];
 _sfLoadoutData setVariable ["machineGuns", [
 
-["rhs_weap_ak105_zenitco01_b33", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_1p87", ["rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
-["rhs_weap_ak105_zenitco01", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_pkas", ["rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
-["rhs_weap_ak105_zenitco01", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_1p78", ["rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
-["rhs_weap_ak105_zenitco01", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_1p29", ["rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
 ["rhs_weap_ak104_zenitco01_b33", "rhs_acc_dtk1", "rhs_acc_perst3_2dp_h", "rhs_acc_1p87", ["rhs_75Rnd_762x39mm_89", "rhs_75Rnd_762x39mm_tracer"], [], "rhs_acc_grip_ffg2"],
 ["rhs_weap_ak104_zenitco01", "rhs_acc_dtk1", "rhs_acc_perst3_2dp_h", "rhs_acc_pkas", ["rhs_75Rnd_762x39mm_89", "rhs_75Rnd_762x39mm_tracer"], [], "rhs_acc_grip_ffg2"],
 ["rhs_weap_ak104_zenitco01", "rhs_acc_dtk1", "rhs_acc_perst3_2dp_h", "rhs_acc_1p78", ["rhs_75Rnd_762x39mm_89", "rhs_75Rnd_762x39mm_tracer"], [], "rhs_acc_grip_ffg2"],
 ["rhs_weap_ak104_zenitco01", "rhs_acc_dtk1", "rhs_acc_perst3_2dp_h", "rhs_acc_1p29", ["rhs_75Rnd_762x39mm_89", "rhs_75Rnd_762x39mm_tracer"], [], "rhs_acc_grip_ffg2"],
+["rhs_weap_rpk74m", "", "", "rhs_acc_1p78", ["rhs_60Rnd_545x39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
 ["rhs_weap_pkp", "", "", "rhs_acc_1p29", ["rhs_100Rnd_762x54mmR_7N26", "rhs_100Rnd_762x54mmR_green"], [], ""],
 ["rhs_weap_pkp", "", "", "rhs_acc_1p78", ["rhs_100Rnd_762x54mmR_7N26", "rhs_100Rnd_762x54mmR_green"], [], ""],
 ["rhs_weap_pkp", "", "", "rhs_acc_pkas", ["rhs_100Rnd_762x54mmR_7N26", "rhs_100Rnd_762x54mmR_green"], [], ""]
@@ -295,6 +292,10 @@ _militaryLoadoutData setVariable ["grenadeLaunchers", [
 ]];
 _militaryLoadoutData setVariable ["SMGs", ["rhs_weap_pp2000"]];
 _militaryLoadoutData setVariable ["machineGuns", [
+["rhs_weap_rpk74m", "", "", "", ["rhs_45Rnd_545x39_7N10_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
+["rhs_weap_rpk74m", "", "", "rhs_acc_1p78", ["rhs_45Rnd_545x39_7N10_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
+["rhs_weap_rpk74m", "", "", "rhs_acc_1p78", ["rhs_60Rnd_545x39_7N10_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
+["rhs_weap_rpk74m", "", "", "rhs_acc_1p29", ["rhs_60Rnd_545x39_7N10_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
 ["rhs_weap_pkp", "", "", "",["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""],
 ["rhs_weap_pkp", "", "", "rhs_acc_1p29",["rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_green"], [], ""],
 ["rhs_weap_pkp", "", "", "rhs_acc_1p78",["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""]

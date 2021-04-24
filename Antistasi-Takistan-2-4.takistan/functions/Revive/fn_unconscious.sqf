@@ -175,6 +175,7 @@ if (time > _bleedOut) exitWith
 if (alive _unit) then
 	{
 	_unit setUnconscious false;
-	_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
+	
+	if(!((animationState _unit) isKindOf [ "Unconscious",configFile >> "CfgMovesMaleSdr" >> "States"]))then{ _unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed"};
 	_unit setBleedingremaining 0;
 	};

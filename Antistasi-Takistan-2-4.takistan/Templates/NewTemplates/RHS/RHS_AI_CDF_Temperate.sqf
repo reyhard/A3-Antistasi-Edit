@@ -27,7 +27,7 @@
 ["vehiclesFuelTrucks", ["rhsgref_cdf_b_ural_fuel"]] call _fnc_saveToTemplate;		//this line determines fuel trucks -- Array, can contain multiple assets
 ["vehiclesMedical", ["rhsgref_cdf_b_gaz66_ap2"]] call _fnc_saveToTemplate;			//this line determines medical vehicles -- Array, can contain multiple assets
 ["vehiclesAPCs", ["rhsgref_cdf_b_btr60", "rhsgref_cdf_b_btr70", "rhsgref_cdf_b_btr80", "rhsgref_cdf_b_bmd1", "rhsgref_cdf_b_bmd1k", "rhsgref_cdf_b_bmd1p", "rhsgref_cdf_b_bmd1pk", "rhsgref_cdf_b_bmd2", "rhsgref_cdf_b_bmd2k", "rhsgref_cdf_b_bmp1", "rhsgref_cdf_b_bmp1d", "rhsgref_cdf_b_bmp1k", "rhsgref_cdf_b_bmp1p", "rhsgref_cdf_b_bmp2e", "rhsgref_cdf_b_bmp2", "rhsgref_cdf_b_bmp2d", "rhsgref_cdf_b_bmp2k"]] call _fnc_saveToTemplate; 				//this line determines APCs -- Example: ["vehiclesAPCs", ["B_APC_Tracked_01_rcws_F", "B_APC_Tracked_01_CRV_F"]] -- Array, can contain multiple assets
-["vehiclesTanks", ["rhsgref_cdf_b_t72ba_tv", "rhsgref_cdf_b_t72bb_tv", "rhsgref_cdf_b_t80b_tv", "rhsgref_cdf_b_t80bv_tv"]] call _fnc_saveToTemplate; 			//this line determines tanks -- Example: ["vehiclesTanks", ["B_MBT_01_cannon_F", "B_MBT_01_TUSK_F"]] -- Array, can contain multiple assets
+["vehiclesTanks", ["rhsgref_cdf_b_t72ba_tv", "rhsgref_cdf_b_t72bb_tv", "rhsgref_cdf_b_t80b_tv", "rhsgref_cdf_b_t80bv_tv","rhsgref_cdf_b_2s1_at"]] call _fnc_saveToTemplate; 			//this line determines tanks -- Example: ["vehiclesTanks", ["B_MBT_01_cannon_F", "B_MBT_01_TUSK_F"]] -- Array, can contain multiple assets
 ["vehiclesAA", ["rhsgref_cdf_b_ural_Zu23", "rhsgref_cdf_b_gaz66_zu23", "rhsgref_cdf_b_zsu234"]] call _fnc_saveToTemplate; 				//this line determines AA vehicles -- Example: ["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] -- Array, can contain multiple assets
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
@@ -59,10 +59,10 @@
 ["vehiclesMilitiaTrucks", ["rhsgref_cdf_b_gaz66", "rhsgref_cdf_b_gaz66_flat", "rhsgref_cdf_b_gaz66o", "rhsgref_cdf_b_gaz66o_flat"]] call _fnc_saveToTemplate; 	//this line determines militia trucks (unarmed) -- Example: ["vehiclesMilitiaTrucks", ["B_G_Van_01_transport_F"]] -- Array, can contain multiple assets
 ["vehiclesMilitiaCars", ["rhsgref_cdf_b_reg_uaz", "rhsgref_cdf_b_reg_uaz_open", "rhsgref_BRDM2UM_b"]] call _fnc_saveToTemplate; 		//this line determines militia cars (unarmed) -- Example: ["vehiclesMilitiaCars", ["	B_G_Offroad_01_F"]] -- Array, can contain multiple assets
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate; 			//this line determines police cars -- Example: ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] -- Array, can contain multiple assets
+["vehiclesPolice", ["RDS_Lada_Civ_05"]] call _fnc_saveToTemplate; 			//this line determines police cars -- Example: ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] -- Array, can contain multiple assets
 
 ["staticMGs", ["rhsgref_cdf_b_DSHKM"]] call _fnc_saveToTemplate; 					//this line determines static MGs -- Example: ["staticMG", ["B_HMG_01_high_F"]] -- Array, can contain multiple assets
-["staticAT", ["rhsgref_cdf_b_SPG9M"]] call _fnc_saveToTemplate; 					//this line determinesstatic ATs -- Example: ["staticAT", ["B_static_AT_F"]] -- Array, can contain multiple assets
+["staticAT", ["rhsgref_cdf_b_SPG9M","rhsgref_cdf_b_reg_d30_at"]] call _fnc_saveToTemplate; 					//this line determinesstatic ATs -- Example: ["staticAT", ["B_static_AT_F"]] -- Array, can contain multiple assets
 ["staticAA", ["rhsgref_cdf_b_Igla_AA_pod", "rhsgref_cdf_b_ZU23"]] call _fnc_saveToTemplate; 					//this line determines static AAs -- Example: ["staticAA", ["B_static_AA_F"]] -- Array, can contain multiple assets
 ["staticMortars", ["rhsgref_cdf_b_reg_M252"]] call _fnc_saveToTemplate; 				//this line determines static mortars -- Example: ["staticMortars", ["B_Mortar_01_F"]] -- Array, can contain multiple assets
 
@@ -266,47 +266,69 @@ _sfLoadoutData setVariable ["GLsidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militaryLoadoutData setVariable ["uniforms", ["rhsgref_uniform_ttsko_mountain"]];		//this line determines uniforms for military loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_militaryLoadoutData setVariable ["vests", ["rhs_6b5_rifleman_ttsko"]];			//this line determines vests for military loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
-_militaryLoadoutData setVariable ["Medvests", ["rhs_6b5_medic_ttsko"]];
-_militaryLoadoutData setVariable ["Offvests", ["rhs_6b5_officer_ttsko"]];
-_militaryLoadoutData setVariable ["Snivests", ["rhs_6b5_sniper_ttsko"]];
+_militaryLoadoutData setVariable ["uniforms", ["rhsgref_uniform_ttsko_mountain","rhsgref_uniform_ttsko_forest","rhsgref_uniform_vsr"]];		//this line determines uniforms for military loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
+_militaryLoadoutData setVariable ["vests", ["rhs_6b5_rifleman_ttsko","rhs_6b5_rifleman_ttsko"]];			//this line determines vests for military loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+_militaryLoadoutData setVariable ["Medvests", ["rhs_6b5_medic_ttsko","rhs_6b5_medic"]];
+_militaryLoadoutData setVariable ["Offvests", ["rhs_6b5_officer_ttsko","rhs_6b5_officer_ttsko"]];
+_militaryLoadoutData setVariable ["Snivests", ["rhs_6b5_sniper_ttsko","rhs_6b5_sniper_ttsko","rhs_6b2_SVD"]];
 _militaryLoadoutData setVariable ["backpacks", ["rhs_sidor", "rhs_assault_umbts"]];
-_militaryLoadoutData setVariable ["helmets", ["rhsgref_6b27m_ttsko_mountain"]];		//this line determines helmets for military loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
+_militaryLoadoutData setVariable ["helmets", ["rhsgref_6b27m_ttsko_mountain","rhsgref_6b27m_ttsko_forest"]];		//this line determines helmets for military loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
 _militaryLoadoutData setVariable ["binoculars", ["Laserdesignator_03"]];
 
 _militaryLoadoutData setVariable ["rifles", [
-["rhs_weap_akmn", "rhs_acc_dtk1l", "rhs_acc_perst1ik", "rhs_acc_1p29", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_akmn", "rhs_acc_dtk1l", "rhs_acc_perst1ik", "rhs_acc_1p78", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_akmn", "rhs_acc_dtk1l", "rhs_acc_perst1ik", "rhs_acc_pkas", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_aks74n", "rhs_acc_dtk3", "rhs_acc_perst1ik", "rhs_acc_1p29", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
-["rhs_weap_aks74n", "rhs_acc_dtk3", "rhs_acc_perst1ik", "rhs_acc_1p78", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
-["rhs_weap_aks74n", "rhs_acc_dtk3", "rhs_acc_perst1ik", "rhs_acc_pkas", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
-["rhs_weap_ak103", "rhs_acc_dtk", "rhs_acc_perst1ik", "rhs_acc_1p29", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_ak103", "rhs_acc_dtk", "rhs_acc_perst1ik", "rhs_acc_1p78", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_ak103", "rhs_acc_dtk", "rhs_acc_perst1ik", "rhs_acc_pkas", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akm", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akm", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akms", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akms", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akms", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akmn", "rhs_acc_dtkakm", "", "rhs_acc_1p29", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akmn", "rhs_acc_dtkakm", "", "rhs_acc_1p78", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akmn", "rhs_acc_dtkakm", "", "rhs_acc_pkas", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_aks74n", "rhs_acc_dtk1983", "", "rhs_acc_1p29", ["rhs_30Rnd_545x39_7N10_2mag_AK"], [], ""],
+["rhs_weap_aks74n", "rhs_acc_dtk1983", "", "rhs_acc_nita", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_aks74n", "rhs_acc_dtk1983", "", "rhs_acc_1p63", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_ak74n", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_2mag_AK"], [], ""],
+["rhs_weap_ak74n", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+["rhs_weap_ak74n", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_ak74", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+["rhs_weap_ak74n_2", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_ak74_2", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_ak74_3", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_2mag_plum_AK"], [], ""],
 ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhs_acc_1p87", "", ["rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58_tracer"], [], "rhsusf_acc_tdstubby_blk"],
 ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhsusf_acc_eotech_552", "", ["rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58_tracer"], [], "rhsusf_acc_tdstubby_blk"],
 ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhsusf_acc_ACOG", "", ["rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58_tracer"], [], "rhsusf_acc_tdstubby_blk"],
 ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhsusf_acc_ACOG_RMR", "", ["rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58_tracer"], [], "rhsusf_acc_tdstubby_blk"]
 ]];
 _militaryLoadoutData setVariable ["carbines", [
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_aks74un", "rhs_acc_pgs64_74un", "", "rhs_acc_ekp1", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
 ["rhs_weap_aks74un", "rhs_acc_pgs64_74un", "", "rhs_acc_ekp1", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
 ["rhs_weap_aks74un", "rhs_acc_pgs64_74un", "", "rhs_acc_pkas", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
 ]];
 _militaryLoadoutData setVariable ["SMGs", ["rhs_weap_pp2000", "rhs_weap_savz61"]];
 _militaryLoadoutData setVariable ["grenadeLaunchers", [
-["rhs_weap_akmn_gp25", "rhs_acc_dtk1l", "", "rhs_acc_1p29", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_akmn_gp25", "rhs_acc_dtk1l", "", "rhs_acc_1p78", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_akmn_gp25", "rhs_acc_dtk1l", "", "rhs_acc_pkas", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akm_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_akm_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_akm_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "", "rhs_acc_1p29", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "", "rhs_acc_1p78", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_ak74_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_plum_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_ak74_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_2mag_plum_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_ak74_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
 ["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983", "", "rhs_acc_1p29", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
 ["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983", "", "rhs_acc_1p78", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983", "", "rhs_acc_pkas", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_ak103_gp25", "rhs_acc_dtk", "", "rhs_acc_1p29", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_ak103_gp25", "rhs_acc_dtk", "", "rhs_acc_1p78", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_ak103_gp25", "rhs_acc_dtk", "", "rhs_acc_pkas", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""]
+["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983", "", "rhs_acc_1p63", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
 ]];
 _militaryLoadoutData setVariable ["machineGuns", [
+["rhs_weap_rpk74m", "", "", "", ["rhs_45Rnd_545x39_7N10_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
+["rhs_weap_rpk74m", "", "", "rhs_acc_1p78", ["rhs_45Rnd_545x39_7N10_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
+["rhs_weap_rpk74m", "", "", "rhs_acc_1p78", ["rhs_60Rnd_545x39_7N10_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
+["rhs_weap_rpk74m", "", "", "rhs_acc_1p29", ["rhs_60Rnd_545x39_7N10_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
+["rhs_weap_pkm", "", "", "",["rhs_100Rnd_762x54mmR_green"], [], ""],
+["rhs_weap_pkm", "", "", "",["rhs_100Rnd_762x54mmR_green"], [], ""],
 ["rhs_weap_pkp", "", "", "",["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""],
 ["rhs_weap_pkp", "", "", "rhs_acc_1p29",["rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_green"], [], ""],
 ["rhs_weap_pkp", "", "", "rhs_acc_1p78",["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""],
@@ -315,10 +337,7 @@ _militaryLoadoutData setVariable ["machineGuns", [
 _militaryLoadoutData setVariable ["marksmanRifles", [
 ["rhs_weap_svdp_wd", "", "", "rhs_acc_pso1m2", [], [], ""],
 ["rhs_weap_svdp", "", "", "rhs_acc_pso1m2", [], [], ""],
-["rhs_weap_svds", "", "", "rhs_acc_pso1m2", [], [], ""],
-["rhs_weap_sr25_ec", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_M8541", ["rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "rhsusf_20Rnd_762x51_SR25_m62_Mag"], [], "rhsusf_acc_harris_bipod"],
-["rhs_weap_sr25_ec", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_LEUPOLDMK4_2", ["rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "rhsusf_20Rnd_762x51_SR25_m62_Mag"], [], "rhsusf_acc_harris_bipod"],
-["rhs_weap_sr25_ec", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_premier_mrds", ["rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "rhsusf_20Rnd_762x51_SR25_m62_Mag"], [], "rhsusf_acc_harris_bipod"]
+["rhs_weap_svds", "", "", "rhs_acc_pso1m2", [], [], ""]
 ]];
 _militaryLoadoutData setVariable ["sniperRifles", [
 ["rhs_weap_t5000", "", "", "rhs_acc_dh520x56", [], [], "rhs_acc_harris_swivel"],
@@ -330,41 +349,37 @@ _militaryLoadoutData setVariable ["sniperRifles", [
 ["rhs_weap_m40a5", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_5Rnd_762x51_m118_special_Mag", "rhsusf_5Rnd_762x51_m118_special_Mag", "rhsusf_5Rnd_762x51_m62_Mag"], [], "rhsusf_acc_harris_swivel"]
 ]];
 _militaryLoadoutData setVariable ["sidearms", [
-["rhsusf_weap_glock17g4", "", "acc_flashlight_pistol", "", ["rhsusf_mag_17Rnd_9x19_FMJ", "rhsusf_mag_17Rnd_9x19_JHP"], [], ""],
-["rhsusf_weap_m9", "", "", "", ["rhsusf_mag_15Rnd_9x19_FMJ", "rhsusf_mag_15Rnd_9x19_JHP"], [], ""]
+["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S", "rhs_mag_9x18_8_57N181S"], [], ""]
 ]];
 ///////////////////////////////
 //    Police Loadout Data    //
 ///////////////////////////////
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_policeLoadoutData setVariable ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
-_policeLoadoutData setVariable ["vests", ["V_TacVest_blk_POLICE"]];
-_policeLoadoutData setVariable ["helmets", ["H_Cap_police"]];
+_policeLoadoutData setVariable ["uniforms", ["rds_uniform_Policeman", "rds_uniform_Policeman"]];
+_policeLoadoutData setVariable ["vests", ["rds_pistol_holster"]];
+_policeLoadoutData setVariable ["helmets", ["rds_police_cap"]];
 _policeLoadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_fakel", "rhs_mag_fakels", "rhs_mag_plamyam"]];
 _policeLoadoutData setVariable ["shotgun", [
-["rhs_weap_M590_8RD", "", "", "", ["rhsusf_8Rnd_00Buck", "rhsusf_8Rnd_Slug"], [], ""],
-["rhs_weap_M590_5RD", "", "", "", ["rhsusf_5Rnd_00Buck", "rhsusf_5Rnd_Slug"], [], ""]
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_akms", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm"], [], ""]
 ]];
 _policeLoadoutData setVariable ["SMGs", [
-["rhsusf_weap_MP7A2", "", "rhsusf_acc_wmx_bk", "rhsusf_acc_compm4", [], [], ""],
-["rhsusf_weap_MP7A2", "", "rhsusf_acc_wmx_bk", "rhsusf_acc_mrds", [], [], ""],
-["rhsusf_weap_MP7A2", "", "rhsusf_acc_wmx_bk", "rhsusf_acc_T1_high", [], [], ""],
-["rhsusf_weap_MP7A2", "", "rhsusf_acc_wmx_bk", "rhsusf_acc_eotech_xps3", [], [], ""],
-"rhs_weap_pp2000"]];
+["rhs_weap_savz61", "", "", "", ["rhsgref_20rnd_765x17_vz61","rhsgref_10rnd_765x17_vz61"], [], ""]
+]];
 _policeLoadoutData setVariable ["sidearms", [
-["rhsusf_weap_glock17g4", "", "acc_flashlight_pistol", "", ["rhsusf_mag_17Rnd_9x19_JHP"], [], ""]
+["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""]
 ]];
 ////////////////////////////////
 //    Militia Loadout Data    //
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militiaLoadoutData setVariable ["uniforms", ["rhsgref_uniform_ttsko_forest"]];		//this line determines uniforms for militia loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_militiaLoadoutData setVariable ["vests", ["rhs_6b5_rifleman_khaki"]];			//this line determines vests for militia loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+_militiaLoadoutData setVariable ["uniforms", ["rhsgref_uniform_ttsko_forest","rhs_uniform_afghanka_ttsko","rhs_uniform_afghanka_ttsko_2","rhs_uniform_afghanka_vsr_3"]];		//this line determines uniforms for militia loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
+_militiaLoadoutData setVariable ["vests", ["rhs_6b5_rifleman_khaki","rhs_6b3_RPK","rhs_6b3_AK","rhs_6b3_AK_2","rhs_6b3_AK_3","rhs_6b2_chicom","rhs_6b2_lifchik"]];			//this line determines vests for militia loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
 _militiaLoadoutData setVariable ["Medvests", ["rhs_6b5_medic_khaki"]];
-_militiaLoadoutData setVariable ["Offvests", ["rhs_6b5_officer_khaki"]];
-_militiaLoadoutData setVariable ["Snivests", ["rhs_6b5_sniper_khaki"]];
+_militiaLoadoutData setVariable ["Offvests", ["rhs_6b5_officer_khaki","rhs_6b3_holster","rhs_6b3_VOG","rhs_6b3_off","rhs_6b3_R148"]];
+_militiaLoadoutData setVariable ["Snivests", ["rhs_6b5_sniper_khaki","rhs_6b2_SVD"]];
 _militiaLoadoutData setVariable ["backpacks", ["rhs_sidor", "rhs_assault_umbts", "rhs_sidor", "B_Carryall_oli"]];
 _militiaLoadoutData setVariable ["Medbackpacks", ["rhs_medic_bag"]];
 _militiaLoadoutData setVariable ["Atbackpacks", ["rhs_rpg_empty"]];
@@ -372,19 +387,20 @@ _militiaLoadoutData setVariable ["Engbackpacks", ["rhs_assault_umbts_engineer_em
 _militiaLoadoutData setVariable ["helmets", ["rhsgref_ssh68_ttsko_forest"]];		//this line determines helmets for police loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
 
 _militiaLoadoutData setVariable ["rifles", [
-["rhs_weap_ak74n", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
-["rhs_weap_akmn", "rhs_acc_dtk", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_akms", "rhs_acc_dtk", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_aks74n", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+["rhs_weap_ak74n", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+["rhs_weap_ak74", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+["rhs_weap_akmn", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akms", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_aks74n", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6M_AK"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["carbines", [
-["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6M_AK"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["grenadeLaunchers", [
-["rhs_weap_ak74n_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_ak74n_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
 ["rhs_weap_akmn_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
 ["rhs_weap_akms_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_aks74n_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
+["rhs_weap_aks74n_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
 ]];
 _militiaLoadoutData setVariable ["SMGs", ["rhs_weap_pp2000"]];
 _militiaLoadoutData setVariable ["machineGuns", ["rhs_weap_pkm"]];

@@ -776,6 +776,21 @@ switch _mode do {
 					{
 						_usableMagazines pushBackUnique _x;
 					} foreach getarray (_cfgMuzzle >> "magazines");
+					// Magazine wells
+					{
+						// Find all entries inside magazine well
+						{
+							// Add all magazines from magazineWell sub class
+							{
+								private _item = _x;
+								_mag = tolower _item;
+								_cfgMag = configfile >> "cfgmagazines" >> _mag;
+								if (getnumber (_cfgMag >> "scope") == 2 || getnumber (_cfgMag >> "scopeArsenal") == 2) then {
+									_usableMagazines pushBackUnique _mag;
+								};
+							}foreach (getArray _x);
+						}foreach (configProperties [configFile >> "CfgMagazineWells" >> _x,"isarray _x"]);
+					} foreach getarray (_cfgMuzzle >> "magazineWell");
 				} foreach getarray (_cfgWeapon >> "muzzles");
 			} foreach (weapons player - ["Throw","Put"]);
 

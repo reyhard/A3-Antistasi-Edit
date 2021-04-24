@@ -158,7 +158,7 @@ case (A3A_hasFFAA): {
             case (worldName in arcticmaps);
             case (worldName in temperatemaps);
             case (worldName in tropicalmaps): {
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_AI_CDF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
                 [2, "Using arctic USAF Template", _filename] call A3A_fnc_log;
             };
             default {

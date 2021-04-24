@@ -65,6 +65,7 @@ if (isMultiplayer) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
+	[player, selectRandom ["Male01RUS","Male02RUS","Male03RUS"] ] remoteExec ["setSpeaker", 0, player];
 }
 else {
 	player setVariable ["eligible",true];
@@ -72,6 +73,7 @@ else {
 	groupX = group player;
 	if (worldName == "Tanoa") then {groupX setGroupId ["Pulu","GroupColor4"]} else {groupX setGroupId ["Stavros","GroupColor4"]};
 	player setIdentity "protagonista";
+	lockIdentity player;
 	player setUnitRank "COLONEL";
 	player hcSetGroup [group player];		// why?
 	player setUnitTrait ["medic", true];

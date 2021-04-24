@@ -83,7 +83,7 @@ _timer = if ([_cured] call A3A_fnc_fatalWound) then
 
 
 _medicX setVariable ["timeToHeal",_timer];
-_medicX playMoveNow selectRandom medicAnims;
+_medicX playMove "UnconsciousReviveMedic";
 _medicX setVariable ["animsDone",false];
 _medicX setVariable ["cured",_cured];
 _medicX setVariable ["success",false];
@@ -102,12 +102,13 @@ _medicX addEventHandler ["AnimDone",
     private _cured = _medicX getVariable ["cured",objNull];
     if (([_medicX] call A3A_fnc_canFight) and (time <= (_medicX getVariable ["timeToHeal",time])) and !(_medicX getVariable ["cancelRevive",false]) and (alive _cured) and (_cured getVariable ["incapacitated",false]) and (_medicX == vehicle _medicX)) then
     {
-        _medicX playMoveNow selectRandom medicAnims;
+        //_medicX playMoveNow selectRandom medicAnims;
     }
     else
     {
         _medicX removeEventHandler ["AnimDone",_thisEventHandler];
         _medicX setVariable ["animsDone",true];
+        _medicX playMove "UnconsciousMedicOut";
         if (([_medicX] call A3A_fnc_canFight) and !(_medicX getVariable ["cancelRevive",false]) and (_medicX == vehicle _medicX) and (alive _cured)) then
         {
             if (_cured getVariable ["incapacitated",false]) then
